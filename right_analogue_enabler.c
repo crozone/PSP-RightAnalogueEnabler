@@ -242,7 +242,7 @@ static
 s32 sceCtrlPeekBufferNegative_patch(SceCtrlData *pData, u8 nBufs) {
     s32 result = sceCtrlPeekBufferNegative(pData, nBufs);
     if(result > 0) {
-        read_right_analogue_data(pData, nBufs, true);
+        read_right_analogue_data(pData, nBufs, false);
     }
     return result;
 }
@@ -260,7 +260,7 @@ static
 s32 sceCtrlReadBufferNegative_patch(SceCtrlData *pData, u8 nBufs) {
     s32 result = sceCtrlReadBufferNegative(pData, nBufs);
     if(result > 0) {
-        read_right_analogue_data(pData, nBufs, true);
+        read_right_analogue_data(pData, nBufs, false);
     }
     return result;
 }
