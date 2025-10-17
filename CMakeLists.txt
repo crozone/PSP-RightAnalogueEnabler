@@ -9,19 +9,21 @@ add_prx_module(${PROJECT_NAME}
 )
 
 set_property(SOURCE imports.S PROPERTY LANGUAGE C)
-# set_target_properties(EmulatedControllerTest PROPERTIES USE_KERNEL_LIBS "1")
 
 target_compile_definitions(
     # If the debug configuration pass the DEBUG define to the compiler
     ${PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:DEBUG>
 )
 
+# NOTE: pspdisplay_driver and pspge_driver are required for printing debug logs to the display
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    pspdebug
-    pspdisplay
-#    pspctrl
-    pspge
+    $<$<CONFIG:Debug>:pspdebug>
+    $<$<CONFIG:Debug>:pspdisplay_driver>
+    $<$<CONFIG:Debug>:pspge_driver>
+    pspmodinfo
+    pspsdk
+    pspkernel
 )
 
-set_target_properties(RightAnalogueEnabler PROPERTIES OUTPUT_NAME "right_analogue_enabler")
-# target_include_directories(RightAnalogueEnabler PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_link_options(${PROJECT_NAME} PRIVATE -nostdlib)
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "right_analogue_enabler")

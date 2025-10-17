@@ -53,18 +53,6 @@
 // We are building a kernel mode prx plugin
 PSP_MODULE_INFO(MODULE_NAME, PSP_MODULE_KERNEL, MAJOR_VER, MINOR_VER);
 
-// We don't allocate any heap memory, so set this to 0.
-PSP_HEAP_SIZE_KB(0);
-//PSP_MAIN_THREAD_ATTR(0);
-//PSP_MAIN_THREAD_NAME(MODULE_NAME);
-
-// We don't need a main thread since we only do basic setup during module start and won't stall module loading.
-// This will make us be called from the module loader thread directly, instead of a secondary kernel thread.
-PSP_NO_CREATE_MAIN_THREAD();
-
-// We don't need any of the newlib features since we're not calling into stdio or stdlib etc
-PSP_DISABLE_NEWLIB();
-
 //
 // Forward declarations
 //
