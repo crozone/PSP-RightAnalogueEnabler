@@ -63,9 +63,9 @@ psp-cmake -DCMAKE_BUILD_TYPE=Debug ../..
 make
 ```
 
-# Debugging
+## Debugging
 
-The debug build .prx logs debug messages via Kprintf.
+The debug build .prx logs debug messages via `Kprintf()`.
 
 Use [PSPLINK](https://github.com/pspdev/psplinkusb) to debug, with the appropriate [kprintf tool](https://github.com/pspdev/psplinkusb/tree/master/tools) to enable debug output.
 
