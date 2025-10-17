@@ -13,25 +13,22 @@
 #include "systemctrl_imports.h"
 
 #ifdef DEBUG
-#include <pspdebug.h>
-#include <pspdisplay.h>
+#include <pspkdebug.h>
 #endif
 
 #include <pspsdk.h>
 #include <psptypes.h>
 #include <pspkerror.h>
 #include <pspkerneltypes.h>
-#include <pspthreadman.h>
 
 #include <stdbool.h>
 #include <inttypes.h>
-
 
 #define str(s) #s // For stringizing defines
 #define xstr(s) str(s)
 
 #ifdef DEBUG
-#define DEBUG_PRINT(...) pspDebugScreenKprintf( __VA_ARGS__ )
+#define DEBUG_PRINT(...) Kprintf( __VA_ARGS__ )
 #else
 #define DEBUG_PRINT(...) do{ } while ( 0 )
 #endif
@@ -258,10 +255,6 @@ s32 sceCtrlReadBufferNegative_patch(SceCtrlData *pData, u8 nBufs) {
 int module_start(SceSize args, void *argp)
 {
     int result;
-
-    #ifdef DEBUG
-    pspDebugScreenInit();
-    #endif
 
     DEBUG_PRINT(MODULE_NAME " v" xstr(MAJOR_VER) "." xstr(MINOR_VER) " Module Start\n");
 

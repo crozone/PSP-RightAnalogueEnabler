@@ -54,7 +54,7 @@ psp-cmake -DCMAKE_BUILD_TYPE=Release ../..
 make
 ```
 
-### For debug (with debug logs printed to the PSP display)
+### For debug (enables Kprintf logging)
 
 ```bash
 mkdir -p -- build/debug
@@ -62,3 +62,13 @@ cd build/debug
 psp-cmake -DCMAKE_BUILD_TYPE=Debug ../..
 make
 ```
+
+# Debugging
+
+The debug build .prx logs debug messages via Kprintf.
+
+Use [PSPLINK](https://github.com/pspdev/psplinkusb) to debug, with the appropriate [kprintf tool](https://github.com/pspdev/psplinkusb/tree/master/tools) to enable debug output.
+
+* scrkprintf.prx: Print to display
+* usbkprintf.prx: Print over USB (routes through printf)
+* siokprintf.prx: Print to the serial port in the PSP headphone remote connector.

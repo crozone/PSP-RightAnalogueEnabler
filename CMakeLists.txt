@@ -15,11 +15,7 @@ target_compile_definitions(
     ${PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:DEBUG>
 )
 
-# NOTE: pspdisplay_driver and pspge_driver are required for printing debug logs to the display
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    $<$<CONFIG:Debug>:pspdebug>
-    $<$<CONFIG:Debug>:pspdisplay_driver>
-    $<$<CONFIG:Debug>:pspge_driver>
     pspmodinfo
     pspsdk
     pspkernel
