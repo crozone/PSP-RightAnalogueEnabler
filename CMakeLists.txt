@@ -22,4 +22,4 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE -nostdlib)
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "right_analogue_enabler")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "RightAnalogueEnabler")

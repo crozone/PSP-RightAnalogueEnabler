@@ -32,11 +32,11 @@ To fix this, the read functions can be patched so that `SceCtrlData` is always p
 ## Installation
 
 * You will need a custom firmware installed on your PSP. See the [ARK-4 project](github.com/PSP-Archive/ARK-4) for details on how to install it.
-* Copy right_analogue_enabler.prx into /SEPLUGINS/ on the root of your Memory Stick
+* Copy RightAnalogueEnabler.prx into /SEPLUGINS/ on the root of your Memory Stick
 * Edit `SEPLUGINS/PLUGINS.TXT`
   * To run the plugin in games, add the line
     ```
-    game, ms0:/SEPLUGINS/right_analogue_enabler.prx, on
+    game, ms0:/SEPLUGINS/RightAnalogueEnabler.prx, on
     ```
   * See [ARK-4 Plugins](https://github.com/PSP-Archive/ARK-4/wiki/Plugins) for more details. 
 * Restart the PSP.
